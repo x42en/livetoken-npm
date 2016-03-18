@@ -35,7 +35,7 @@ module.exports = class Livetoken
 			params.Email = phone
 
 		@_interact
-			action: 'status'
+			action: 'request'
 			params: params
 			callback: callback
 

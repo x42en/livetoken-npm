@@ -1,5 +1,5 @@
 /****************************************************/
-/*         Livetoken - v0.1.1                       */
+/*         Livetoken - v0.1.2                       */
 /*                                                  */
 /* Easily interact with LiveToken.io in node.js     */
 /****************************************************/
@@ -46,7 +46,7 @@
         params.Email = phone;
       }
       return this._interact({
-        action: 'status',
+        action: 'request',
         params: params,
         callback: callback
       });
