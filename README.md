@@ -25,14 +25,14 @@ Install with npm
 
 ## Basic usage
 
-Require the module, and use your API_KEY
+Require the module
   ```coffeescript
-    LIVETOKEN = require('livetoken')(YOUR-API-KEY-HERE)
+    LIVETOKEN = require('livetoken')
   ```
 
-Instantiate without options
+Instantiate with your API_KEY
   ```coffeescript
-    livetoken = new LIVETOKEN()
+    livetoken = new LIVETOKEN(YOUR-API-KEY-HERE)
   ```
 
 Execute status request

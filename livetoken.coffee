@@ -18,11 +18,14 @@ request = require 'request'
 
 module.exports = class Livetoken
 	# Define the variables used by the server
-	constructor: ({apikey}) ->
+	constructor: (apikey) ->
 		@apikey = if apikey? then apikey else null
 
-	status: (callback) ->
-		@_interact 'status', { 'Client_ID': @apikey }, callback
+	status: ({callback}) ->
+		@_interact
+			action: 'status'
+			params: { 'Client_ID': @apikey }
+			callback: callback
 
 	request: ({phone, email, callback}) ->
 		params = { 'Client_ID': @apikey }
@@ -31,7 +34,10 @@ module.exports = class Livetoken
 		if email
 			params.Email = phone
 
-		@_interact 'status', params, callback
+		@_interact
+			action: 'status'
+			params: params
+			callback: callback
 
 	_interact: ({action, params, callback}) ->
         request
