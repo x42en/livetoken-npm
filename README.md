@@ -8,6 +8,13 @@ This will allow you to request token to [livetoken.io](http://livetoken.io), and
 If you are using meteor, please have a look at [livetoken-base](https://github.com/x62en/livetoken-base)
 
 
+## Registration
+
+First register yourself on [livetoken.io](http://livetoken.io) (it's free !) and retrieve your API Key (client_id) from your administration space.
+
+___
+
+
 ## Install
 
 Install with npm
