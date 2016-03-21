@@ -50,7 +50,7 @@ Execute status request
 Execute token request
   ```coffeescript
     livetoken.request
-      phone: 0033601020304 //client phone in international format
+      phone: 0033601020304 # client phone in international format
       email: client.mail@domain.com
       callback: (result) ->
         unless result.State
