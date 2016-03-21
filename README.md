@@ -32,7 +32,7 @@ Require the module
 
 Instantiate with your API_KEY
   ```coffeescript
-    livetoken = new LIVETOKEN(YOUR-API-KEY-HERE)
+    livetoken = new LIVETOKEN('YOUR-API-KEY-HERE')
   ```
 
 Execute status request
@@ -50,8 +50,8 @@ Execute status request
 Execute token request
   ```coffeescript
     livetoken.request
-      phone: 0033601020304 # client phone in international format
-      email: client.mail@domain.com
+      phone: '0033601020304' # client phone in international format
+      email: 'client.mail@domain.com'
       callback: (result) ->
         unless result.State
           console.log result.Msg
