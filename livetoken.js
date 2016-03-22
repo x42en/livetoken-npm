@@ -1,5 +1,5 @@
 /****************************************************/
-/*         Livetoken - v0.1.3                       */
+/*         Livetoken - v0.1.4                       */
 /*                                                  */
 /* Easily interact with LiveToken.io in node.js     */
 /****************************************************/
@@ -52,7 +52,7 @@
         callback = this._default_callback;
       }
       return this._interact({
-        action: 'status',
+        action: 'request',
         params: params,
         callback: callback
       });

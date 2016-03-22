@@ -43,7 +43,7 @@ module.exports = class Livetoken
 			callback = @_default_callback
 
 		@_interact
-			action: 'status'
+			action: 'request'
 			params: params
 			callback: callback
 
