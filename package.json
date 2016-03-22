@@ -1,8 +1,8 @@
 {
   "name": "livetoken",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Implement standard livetoken actions",
-  "main": "Livetoken.js",
+  "main": "livetoken.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
