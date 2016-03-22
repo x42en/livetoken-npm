@@ -17,16 +17,21 @@
 request = require 'request'
 
 module.exports = class Livetoken
-	# Define the variables used by the server
-	constructor: (apikey) ->
-		@apikey = if apikey? then apikey else null
 
+	# Define the apikey used by the server
+	constructor: (@apikey) ->
+
+	# Execute status request
 	status: ({callback}) ->
+		unless callback
+			callback = @_default_callback
+
 		@_interact
 			action: 'status'
 			params: { 'Client_ID': @apikey }
 			callback: callback
 
+	# Execute token request
 	request: ({phone, email, callback}) ->
 		params = { 'Client_ID': @apikey }
 		if phone
@@ -34,11 +39,18 @@ module.exports = class Livetoken
 		if email
 			params.Email = phone
 
+		unless callback
+			callback = @_default_callback
+
 		@_interact
-			action: 'request'
+			action: 'status'
 			params: params
 			callback: callback
 
+	_default_callback: (raw) ->
+		console.log JSON.stringify raw
+
+	# Do the actual request to server (private call)
 	_interact: ({action, params, callback}) ->
         request
             method: 'POST'
@@ -52,5 +64,3 @@ module.exports = class Livetoken
                 	callback body
                 else
                     callback {State: false, Msg: "Uknown server error: #{response.statusCode}"}
-
-    

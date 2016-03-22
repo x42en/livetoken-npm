@@ -1,5 +1,5 @@
 /****************************************************/
-/*         Livetoken - v0.1.2                       */
+/*         Livetoken - v0.1.3                       */
 /*                                                  */
 /* Easily interact with LiveToken.io in node.js     */
 /****************************************************/
@@ -18,12 +18,15 @@
 
   module.exports = Livetoken = (function() {
     function Livetoken(apikey) {
-      this.apikey = apikey != null ? apikey : null;
+      this.apikey = apikey;
     }
 
     Livetoken.prototype.status = function(_arg) {
       var callback;
       callback = _arg.callback;
+      if (!callback) {
+        callback = this._default_callback;
+      }
       return this._interact({
         action: 'status',
         params: {
@@ -45,11 +48,18 @@
       if (email) {
         params.Email = phone;
       }
+      if (!callback) {
+        callback = this._default_callback;
+      }
       return this._interact({
-        action: 'request',
+        action: 'status',
         params: params,
         callback: callback
       });
+    };
+
+    Livetoken.prototype._default_callback = function(raw) {
+      return console.log(JSON.stringify(raw));
     };
 
     Livetoken.prototype._interact = function(_arg) {
