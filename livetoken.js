@@ -1,5 +1,5 @@
 /****************************************************/
-/*         Livetoken - v0.1.4                       */
+/*         Livetoken - v0.1.5                       */
 /*                                                  */
 /* Easily interact with LiveToken.io in node.js     */
 /****************************************************/
@@ -21,9 +21,9 @@
       this.apikey = apikey;
     }
 
-    Livetoken.prototype.status = function(_arg) {
+    Livetoken.prototype.status = function(arg) {
       var callback;
-      callback = _arg.callback;
+      callback = arg.callback;
       if (!callback) {
         callback = this._default_callback;
       }
@@ -36,9 +36,9 @@
       });
     };
 
-    Livetoken.prototype.request = function(_arg) {
+    Livetoken.prototype.request = function(arg) {
       var callback, email, params, phone;
-      phone = _arg.phone, email = _arg.email, callback = _arg.callback;
+      phone = arg.phone, email = arg.email, callback = arg.callback;
       params = {
         'Client_ID': this.apikey
       };
@@ -62,14 +62,14 @@
       return console.log(JSON.stringify(raw));
     };
 
-    Livetoken.prototype._interact = function(_arg) {
+    Livetoken.prototype._interact = function(arg) {
       var action, callback, params;
-      action = _arg.action, params = _arg.params, callback = _arg.callback;
+      action = arg.action, params = arg.params, callback = arg.callback;
       return request({
         method: 'POST',
         json: true,
         form: params,
-        uri: "http://livetoken.io/" + action
+        uri: "https://livetoken.io/" + action
       }, (function(_this) {
         return function(error, response, body) {
           if (!error && response.statusCode === 200) {

@@ -56,7 +56,7 @@ module.exports = class Livetoken
             method: 'POST'
             json: true
             form: params
-            uri: "http://livetoken.io/#{action}"
+            uri: "https://livetoken.io/#{action}"
             (error, response, body) =>
 
                 # Define answer object
